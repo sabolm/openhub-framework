@@ -94,7 +94,7 @@ public class MessageServiceImpl implements MessageService {
         LOG.debug("Inserted new message " + message.toHumanString());
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
     public void insertMessages(Collection<Message> messages) {
         Assert.notNull(messages, "the messages must not be null");
