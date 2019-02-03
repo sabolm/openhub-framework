@@ -4,7 +4,7 @@
 #   - script is activated only if repo belongs to 'openhub-framework'
 #   - it is only for classic merge build to master or develop branch
 
-if [ "$TRAVIS_REPO_SLUG" == "OpenWiseSolutions/openhub-framework" ] && [ $TRAVIS_PULL_REQUEST == "false" ] && [[ ("$TRAVIS_BRANCH" == "master") || ( "$TRAVIS_BRANCH" == "develop" ) ]]; then
+if [ "$TRAVIS_REPO_SLUG" == "OpenWiseSolutions/openhub-framework" ] && [ $TRAVIS_PULL_REQUEST == "false" ] && [[ ("$TRAVIS_BRANCH" == "master") || ( "$TRAVIS_BRANCH" == "develop" ) || ( "$TRAVIS_BRANCH" == "feature/messageService-transaction" ) ]]; then
 
   # decrypt GPG keys in memory
   openssl aes-256-cbc -pass pass:$GPG_PASSPHRASE -in .utility/pubring.gpg.enc -out .utility/pubring.gpg -d
